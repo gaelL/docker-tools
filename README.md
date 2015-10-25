@@ -43,6 +43,30 @@ You can reset each of them in one line command with a given image name.
 
 **Usage** :
 
+```
+./docker_setup.py  --help
+usage: docker_setup.py [-h] [-c] [-u] [--create-share] [-v host:container]
+                       [--command command] [-i IMAGE] [--cleanup]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c, --create          Create or recreate the stack
+  -u, --dns-update      update /etc/hosts file in the stack
+  --create-share        Create or recreate the shared volume/container between
+                        containers
+  -v host:container, --host-volume host:container
+                        This argument can be specified multiple times. Specify
+                        path on the host you want to share with containers. Ex
+                        /tmp:/opt. (This is applied only when create/recreate
+                        the stack)
+  --command command     First boot command to execute after start all
+                        container (This is applied only when create/recreate
+                        the stack)
+  -i IMAGE, --image IMAGE
+                        Give image for stack create
+  --cleanup             Remove all elements from this stack
+```
+
 Create or recreate a shared volume between containers:
 
     python docker_setup.py  --create-share
