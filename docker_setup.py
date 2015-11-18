@@ -272,7 +272,7 @@ if __name__ == '__main__':
             pass
 
         # Create new containers
-        container = cli.create_containers(image=myimage,
+        container = cli.create_containers(image=ARGS.image,
                                           names=mycontainers)
 
         start_kwargs = {}
