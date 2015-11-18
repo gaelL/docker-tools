@@ -68,7 +68,8 @@ LOG.setLevel(logging.INFO)
 # Parse args
 PARSER = argparse.ArgumentParser()
 PARSER.add_argument('-c', '--create',
-                    help='Create or recreate the stack',
+                    help='Create or recreate the stack. '
+                         'Default image debian if not specified.',
                     action='store_true',
                     default=False)
 
@@ -101,6 +102,7 @@ PARSER.add_argument('--command',
 
 PARSER.add_argument('-i', '--image',
                     help='Give image for stack create',
+                    default='debian',
                     type=str)
 
 PARSER.add_argument('--cleanup',
@@ -243,12 +245,6 @@ if __name__ == '__main__':
 
     # Set container list
     mycontainers = ['node1', 'node2', 'node3', 'node4']
-
-    # Default image name
-    if ARGS.image:
-        myimage = ARGS.image
-    else:
-        myimage = 'debian'
 
     # Init docker cli
     cli = Docker(base_url='unix://var/run/docker.sock')
