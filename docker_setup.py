@@ -110,6 +110,11 @@ PARSER.add_argument('--cleanup',
                     action='store_true',
                     default=False)
 
+PARSER.add_argument('-s', '--size',
+                    help='Indicate the stack size (number of containers',
+                    type=int,
+                    default=4)
+
 ARGS = PARSER.parse_args()
 
 
@@ -244,7 +249,7 @@ if __name__ == '__main__':
     LOG.addHandler(HDL)
 
     # Set container list
-    mycontainers = ['node1', 'node2', 'node3', 'node4']
+    mycontainers = ['node%s' % x for x in range(1, ARGS.size + 1)]
 
     # Init docker cli
     cli = Docker(base_url='unix://var/run/docker.sock')

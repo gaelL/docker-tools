@@ -64,6 +64,7 @@ optional arguments:
                         the stack)
   -i IMAGE, --image IMAGE
                         Give image for stack create
+  -s SIZE, --size SIZE  Indicate the stack size (number of containers
   --cleanup             Remove all elements from this stack
 ```
 
